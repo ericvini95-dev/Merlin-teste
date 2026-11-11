@@ -1,0 +1,88 @@
+<title>Catálogo Merlin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: protótipo só visual, coluna única de celular, lista de produtos com preço e botão de pedir */
+:root{
+  --bg:#F4F2F8; --surface:#FFFFFF; --ink:#1C1830; --muted:#68637E;
+  --line:#DDD8EA; --accent:#4B2C8F; --on-accent:#FFFFFF; --thumb:#E8E3F3;
+  --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14111F; --surface:#1E1A2E; --ink:#F1EEF8; --muted:#A39DBB;
+    --line:#352F4C; --accent:#B3A0F5; --on-accent:#17112B; --thumb:#2A2440;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14111F; --surface:#1E1A2E; --ink:#F1EEF8; --muted:#A39DBB;
+  --line:#352F4C; --accent:#B3A0F5; --on-accent:#17112B; --thumb:#2A2440;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.5;
+  padding-block:0 32px;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:560px;margin:0 auto}
+header{padding:24px 0 4px}
+.brand{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.tag{color:var(--muted);font-size:14px;margin-top:2px}
+h1{font-family:var(--font-display);font-weight:800;font-size:28px;line-height:1.15;margin:20px 0 14px;text-wrap:balance}
+.diag{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:14px;margin-bottom:18px}
+.diag b{display:block}
+.diag span{color:var(--muted);font-size:14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+.chip{flex:0 0 auto;font:inherit;font-size:14px;font-weight:500;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{display:flex;gap:12px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px}
+.thumb{flex:0 0 72px;height:72px;border-radius:8px;background:var(--thumb)}
+.info{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.cat{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.name{font-weight:700}
+.desc{font-size:14px;color:var(--muted)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.price{font-family:var(--font-display);font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
+.btn{font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;border:1.5px solid var(--accent);background:transparent;color:var(--accent)}
+.btn.main{background:var(--accent);color:var(--on-accent);padding:10px 16px}
+.foot{color:var(--muted);font-size:13px;margin-top:24px;text-align:center}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="brand">Merlin Cosméticos</div>
+    <div class="tag">Cosméticos profissionais, do meu salão para sua casa</div>
+  </header>
+
+  <h1>Catálogo</h1>
+
+  <div class="diag">
+    <div><b>Não sabe o que escolher?</b><span>Faça o diagnóstico capilar</span></div>
+    <button class="btn main" type="button">Começar</button>
+  </div>
+
+  <div class="chips">
+    <button class="chip on" type="button">Todos</button>
+    <button class="chip" type="button">Shampoo</button>
+    <button class="chip" type="button">Máscara</button>
+    <button class="chip" type="button">Finalizador</button>
+    <button class="chip" type="button">Tratamento</button>
+  </div>
+
+  <div class="list">
+    <div class="item"><div class="thumb"></div><div class="info"><span class="cat">Shampoo</span><span class="name">Shampoo Hidratação Profunda</span><span class="desc">Limpa e devolve a maciez dos fios.</span><div class="row"><span class="price">R$ 39,90</span><button class="btn" type="button">Pedir</button></div></div></div>
+    <div class="item"><div class="thumb"></div><div class="info"><span class="cat">Máscara</span><span class="name">Máscara Nutrição Mel</span><span class="desc">Nutre, reduz o frizz e dá brilho.</span><div class="row"><span class="price">R$ 59,90</span><button class="btn" type="button">Pedir</button></div></div></div>
+    <div class="item"><div class="thumb"></div><div class="info"><span class="cat">Máscara</span><span class="name">Máscara Reconstrução</span><span class="desc">Para cabelos com química e pontas quebradas.</span><div class="row"><span class="price">R$ 64,90</span><button class="btn" type="button">Pedir</button></div></div></div>
+    <div class="item"><div class="thumb"></div><div class="info"><span class="cat">Finalizador</span><span class="name">Leave-in Frizz Zero</span><span class="desc">Controla o frizz e hidrata sem pesar.</span><div class="row"><span class="price">R$ 44,90</span><button class="btn" type="button">Pedir</button></div></div></div>
+    <div class="item"><div class="thumb"></div><div class="info"><span class="cat">Tratamento</span><span class="name">Tônico Antiqueda</span><span class="desc">Fortalece a raiz e estimula o crescimento.</span><div class="row"><span class="price">R$ 69,90</span><button class="btn" type="button">Pedir</button></div></div></div>
+  </div>
+
+  <p class="foot">Atendemos a nossa cidade e a cidade vizinha.</p>
+</div>
